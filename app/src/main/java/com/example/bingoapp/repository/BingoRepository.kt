@@ -8,7 +8,7 @@ import io.reactivex.disposables.CompositeDisposable
 class BingoRepository (private val bingoService: BingoInterface) {
     lateinit var networkDataSource: NetworkDataSource
 
-    fun getAllBingoSupermarkets(compositeDisposable: CompositeDisposable): LiveData<List<Bingo>> {
+    fun getAllBingoSupermarkets(compositeDisposable: CompositeDisposable): LiveData<Bingo> {
         networkDataSource = NetworkDataSource(bingoService, compositeDisposable)
         networkDataSource.getAllBingoSupermarkets()
 

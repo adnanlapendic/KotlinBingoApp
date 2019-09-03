@@ -44,5 +44,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val bingo = LatLng(latitude, longitude)
         mMap.addMarker(MarkerOptions().position(bingo).title(address))
         mMap.moveCamera(CameraUpdateFactory.newLatLng(bingo))
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bingo, 17f))
+
     }
 }

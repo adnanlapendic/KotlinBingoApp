@@ -15,6 +15,7 @@ import com.example.bingoapp.api.PlacesClient
 import com.example.bingoapp.model.Bingo
 import com.example.bingoapp.repository.BingoRepository
 
+//https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=15000&type=restaurant&keyword=cruise&key=AIzaSyBOe-I5hE4tkNMNEMx0uQ002BJyLJykwYk
 class MainActivity : AppCompatActivity() {
 
     private lateinit var viewModel: MainViewModel
@@ -31,19 +32,21 @@ class MainActivity : AppCompatActivity() {
         viewModel = getViewModel()
 
         viewModel.listOfBingoSupermakets.observe(this, Observer {
+//            Toast.makeText(this, it.toString(), Toast.LENGTH_LONG).show()
             bindUI(it)
         })
 
     }
 
-     private fun bindUI(it: List<Bingo>) {
+     private fun bindUI(it: Bingo) {
 
-         Toast.makeText(this, it.toString(), Toast.LENGTH_LONG).show()
+//         Toast.makeText(this, it.toString(), Toast.LENGTH_LONG).show()
 
          val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
          recyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL,false)
 
-         val adapter = BingoAdapter(it)
+         val adapter = BingoAdapter(it.results)
+//         Toast.makeText(this, it.results.toString(), Toast.LENGTH_LONG).show()
          recyclerView.adapter = adapter
     }
 

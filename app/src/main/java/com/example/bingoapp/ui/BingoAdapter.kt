@@ -8,9 +8,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bingoapp.R
-import com.example.bingoapp.model.Bingo
+import com.example.bingoapp.model.Result
 
-class BingoAdapter(private val listOfBingoSupermarkets:List<Bingo>) : RecyclerView.Adapter<BingoAdapter.ViewHolder>() {
+class BingoAdapter(private val listOfBingoSupermarkets:List<Result>) : RecyclerView.Adapter<BingoAdapter.ViewHolder>() {
 
     lateinit var thisContext: Context
 
@@ -29,13 +29,13 @@ class BingoAdapter(private val listOfBingoSupermarkets:List<Bingo>) : RecyclerVi
         val bingo = listOfBingoSupermarkets[position]
 
         holder.bingoName.text = bingo.name
-        holder.bingoAddress.text = bingo.address
+        holder.bingoAddress.text = bingo.vicinity
 
         holder.itemView.setOnClickListener{
             val intent = Intent(thisContext, MapsActivity::class.java)
-            intent.putExtra("latitude", bingo.latitude)
-            intent.putExtra("longitude", bingo.longitude)
-            intent.putExtra("address", bingo.address)
+            intent.putExtra("latitude", bingo.geometry.location.lat)
+            intent.putExtra("longitude", bingo.geometry.location.lng)
+            intent.putExtra("address", bingo.vicinity)
             this.thisContext.startActivity(intent)
         }
 

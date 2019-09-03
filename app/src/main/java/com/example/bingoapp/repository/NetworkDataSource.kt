@@ -10,8 +10,8 @@ import io.reactivex.schedulers.Schedulers
 import java.lang.Exception
 
 class NetworkDataSource(private val bingoService: BingoInterface, private val compositeDisposable: CompositeDisposable) {
-    private val _downloadedResponse = MutableLiveData<List<Bingo>>()
-    val downloadedResponse: LiveData<List<Bingo>>
+    private val _downloadedResponse = MutableLiveData<Bingo>()
+    val downloadedResponse: LiveData<Bingo>
     get() = _downloadedResponse
 
     fun getAllBingoSupermarkets() {

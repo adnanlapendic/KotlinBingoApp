@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit
 
 
 
-const val BASE_URL = "https://maps.googleapis.com/maps/api/place/findplacefromtext/"
+const val BASE_URL = "https://maps.googleapis.com/maps/api/place/nearbysearch/"
 object PlacesClient  {
 
     fun getBingoSupermarkets() : BingoInterface {

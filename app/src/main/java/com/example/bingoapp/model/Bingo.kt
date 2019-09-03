@@ -1,8 +1,11 @@
 package com.example.bingoapp.model
 
+
+import com.google.gson.annotations.SerializedName
+
 data class Bingo(
-    val name: String,
-    val address: String,
-    val latitude: Double,
-    val longitude: Double
+    @SerializedName("html_attributions")
+    val htmlAttributions: List<Any>,
+    val results: List<Result>,
+    val status: String
 )

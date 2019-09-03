@@ -9,7 +9,7 @@ import io.reactivex.disposables.CompositeDisposable
 class MainViewModel(private val repository: BingoRepository) : ViewModel() {
     private val compositeDisposable = CompositeDisposable()
 
-    val listOfBingoSupermakets: LiveData<List<Bingo>> = repository.getAllBingoSupermarkets(compositeDisposable)
+    val listOfBingoSupermakets: LiveData<Bingo> = repository.getAllBingoSupermarkets(compositeDisposable)
 
 
     override fun onCleared() {
